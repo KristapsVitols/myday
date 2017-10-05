@@ -28,6 +28,7 @@ router.post('/register', (req, res) => {
 			return res.render('index', {error: err.message});
 		}
 		passport.authenticate('local')(req, res, () => {
+			req.flash("success", `Paldies, ka reģistrējies, ${req.user.username}!`);
 			res.redirect('/stories');
 		});
 	});
