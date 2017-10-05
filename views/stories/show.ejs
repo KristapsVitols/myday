@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+
+<div class="container mt-5">
+	<div class="card">
+		<div class="card-header">
+			<h4 class="card-title text-center pt-3"><%= story.title %></h4>
+		</div>
+		<div class="card-body">
+			<p class="card-text"><%= story.description %></p>
+			<small><%= moment(story.created).locale('lv').fromNow(); %> | Autors: <%= story.author.username %></small>
+		</div>
+		<div class="card-footer">
+			<a class='text-success' href="/stories/<%= story._id %>/comments/new"><i class="fa fa-plus" aria-hidden="true"></i> Pievienot komentāru</a>
+			<% if(currentUser && story.author.id.equals(currentUser._id)) { %>
+				<a class='ml-3 text-warning float-right' href="/stories/<%= story._id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i> Rediģēt</a>
+				<form class='delete-form float-right' action="/stories/<%= story._id%>?_method=DELETE" method='POST'>
+					<button class="del text-danger"><i class="fa fa-times" aria-hidden="true"></i> Dzēst</button>
+				</form>
+			<% } %>
+		</div>
+	</div>
+	<h4 class="text-center mt-4">Komentāri</h4>
+	<div class="col-8">
+		<div class="card mt-1 comment-card">
+			<% story.comments.forEach(function(comment) { %>
+			<div class="card-body">
+				<p class="card-text"><strong><%= comment.author.username %></strong>: <%= comment.text %></p>
+				<small><%= moment(comment.created).locale('lv').fromNow(); %></small>
+			<% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+				<a class='ml-3 text-warning float-right' href="/stories/<%= story._id %>/comments/<%= comment._id %>/edit"><small><i class="fa fa-pencil" aria-hidden="true"></i> Rediģēt</small></a>
+				<form class='delete-form float-right' action="/stories/<%= story._id%>/comments/<%= comment._id %>?_method=DELETE" method='POST'>
+					<button class="del text-danger"><small><i class="fa fa-times" aria-hidden="true"></i> Dzēst</small></button>
+				</form>
+			<% } %>
+			<hr>
+			</div>
+			<% }); %>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

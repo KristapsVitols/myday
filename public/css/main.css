@@ -1,0 +1,128 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+	background-color: #16A085;
+	padding-top: 1.2rem!important;
+	padding-bottom: 0.65rem!important;
+}
+
+a {
+	color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: #fff;
+}
+
+.main-body {
+	background: #eee;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+body {
+	background-color: #eee;
+}
+
+.cover {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	color: #333;
+}
+
+.comment-card {
+	background-color: #eee;
+	border: 0;
+}
+
+.back-link {
+	font-size: 0.9em;
+}
+
+.comment-card .card-body {
+	padding-bottom: 0;
+}
+
+.comment-card p {
+	margin: 0;
+}
+
+.form-control {
+	max-width: 600px;
+}
+
+.delete-form {
+	display: inline;
+}
+
+.del {
+	cursor: pointer;
+}
+
+.delete-form button {
+	border: 0;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+.delete-form button:hover {
+	text-decoration: underline;
+}
+
+.delete-button {
+	display: inline;
+}
+
+.main-container {
+	padding-top: 8%;
+	flex: 1;
+}
+
+.main-title {
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+
+.top-line {
+	background-color: #16A085;
+}
+
+.form-control-sm {
+	border-radius: 0;
+}
+
+.btn-my {
+	background-color: #16A085;
+}
+
+/* MEDIA Q */
+@media screen and (max-width: 767px) {
+	.logo {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.justify-content-end {
+		justify-content: center!important;
+	}
+
+}
+
+@media screen and (max-width: 530px) {
+	.form-inline {
+		flex-direction: column!important;
+	}
+	.main-title {
+		font-size: 1.5em;
+	}
+	input.form-control-sm.mr-2 {
+		margin: 0 auto!important;
+	}
+	input.btn.ml-2 {
+		margin: 0 auto!important;
+	}
+}

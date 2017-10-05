@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MyDay.lv</title>
+	<link rel="icon" href="/css/img/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="main-body">
+	<div class="cover">
+		<div class="top-line border-bottom">
+			<div class="container pt-4 pb-3">
+				<div class="row justify-content-between">
+					<div class="col-lg-4 col-md-3">
+						<h2 class="logo text-white"><i class="fa fa-address-book" aria-hidden="true"></i> MyDay</h2>
+					</div>
+					<div class="col-lg-8 col-md-9 col-sm-12">
+						<form class="form-index form-inline justify-content-end" action="/login" method='POST'>
+							<div class="form-group">
+								<input class='form-control-sm mr-2' type="text" name="username" id="" placeholder="lietotājvārds">
+							</div>
+							<div class="form-group">
+								<input class='form-control-sm mx-auto' type="password" name="password" id="" placeholder="parole">
+							</div>
+							<div class="form-group text-center">
+								<input class='btn ml-2 btn-sm btn-secondary' type="submit" value="Ienākt">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container main-container">
+			<div class="row justify-content-between">
+				<div class="col-lg-5">
+					<div class="text-center landing mb-5">
+						<h2 class="main-title">Šī ir vieta, kur vari dalīties ar savu ikdienu, vai arī iedvesmoties no citu ikdienas piedzīvojumiem, notikumiem!</h1>
+					</div>
+				</div>
+				<div class="col-lg-6 pt-4 rounded">
+					<div class="container">
+					<% if(error && error.length > 0){ %>
+						<div class="alert alert-danger" role="alert">
+							<%= error %>
+						</div>
+					<% } %>
+					<% if(success && success.length > 0){ %>
+						<div class="alert alert-success" role="alert">
+							<%= success %>
+						</div>
+					<% } %>
+					</div>
+					<h2 class="text-center">Reģistrācija</h2>
+					<form action="/register" method='POST'>
+						<div class="form-group">
+							<input class='form-control mx-auto' type="textma" name="username" id="" placeholder="Lietotājvārds">
+						</div>
+						<div class="form-group">
+							<input class='form-control mx-auto' type="password" name="password" id="" placeholder="Parole">
+						</div>
+						<div class="form-group">
+							<input class='form-control mx-auto' type="password" name="password2" id="" placeholder="Atkārtot paroli">
+						</div>
+						<div class="form-group text-center">
+							<input class='btn btn-secondary' type="submit" value="Reģistrēties">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<footer class="py-3 text-center">Kristaps Vitols 2017</footer>
+	</div>
+</body>
+</html>

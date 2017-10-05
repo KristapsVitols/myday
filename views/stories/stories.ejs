@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-12 pt-5 pb-5 text-center">
+			<a class="text-info" href="/stories/new"><i class="fa fa-plus" aria-hidden="true"></i> Pievienot jaunu ierakstu</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<h2 class="text-center">Jaunākie ieraksti</h2>
+			<% stories.forEach(function(story) { %>
+				<div class="card mb-3">
+					<div class="card-body">
+					<h4><%= story.title %></h4>
+					<% if( story.description.length > 100) {  %>
+						<p class="card-text"><%= story.description.substring(0, 100) + '...' %></p>
+					<% } else { %>
+						<p class="card-text"><%= story.description %></p>
+					<% } %>
+					</div>
+					<div class="card-footer">
+						<small>Pievienots: <%= moment(story.created).locale('lv').fromNow(); %> | Autors: <%= story.author.username %></small><br>
+						<small><%= story.views %> Skatījumi</small>
+						<a class="btn btn-sm btn-secondary float-right" href="/stories/<%= story._id %>">Lasīt vairāk</a>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+		<div class="col-lg-6">
+			<h2 class="text-center">Skatītākie ieraksti</h2>
+			<% viewstories.forEach(function(story) { %>
+				<div class="card mb-3">
+					<div class="card-body">
+					<h4><%= story.title %></h4>
+					<% if( story.description.length > 100) {  %>
+						<p class="card-text"><%= story.description.substring(0, 100) + '...' %></p>
+					<% } else { %>
+						<p class="card-text"><%= story.description %></p>
+					<% } %>
+					</div>
+					<div class="card-footer">
+						<small>Pievienots: <%= moment(story.created).locale('lv').fromNow(); %> | Autors: <%= story.author.username %></small><br>
+						<small><%= story.views %> Skatījumi</small>
+						<a class="btn btn-sm btn-secondary float-right" href="/stories/<%= story._id %>">Lasīt vairāk</a>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>
